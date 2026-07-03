@@ -1,70 +1,127 @@
 "use client";
 
-type Token = { t: string; c?: string };
-type Line  = Token[];
+const focus = [
+  {
+    text: "Building scalable full-stack applications using React, Next.js, Node.js, TypeScript and Firebase.",
+  },
+  {
+    text: "Developing Agentic AI systems with OpenAI Agents SDK, LangGraph, Ollama and LLM-powered workflows.",
+  },
+  {
+    text: "Creating AI-powered applications that combine intelligent automation with intuitive user experiences.",
+  },
+  {
+    text: "Exploring Machine Learning, Computer Vision, Blockchain and modern software architecture.",
+  },
+  {
+    text: "Solving real-world problems through projects like Deep Research, MediLedger and Hush.",
+  },
+  {
+    text: "Continuously learning new technologies while building production-ready software.",
+  },
+];
 
-const lines: Line[] = [
-  [{ t: "// about.tsx - Who is Preksha?", c: "cmt" }],
-  [],
-  [{ t: "const", c: "kw2" }, { t: " about", c: "fn" }, { t: ": ", c: "wh" }, { t: "AboutMe", c: "typ" }, { t: " = {", c: "wh" }],
-  [{ t: "  name", c: "attr" }, { t: ": ", c: "wh" }, { t: '"Preksha Chawla"', c: "str" }, { t: ",", c: "wh" }],
-  [{ t: "  based", c: "attr" }, { t: ": ", c: "wh" }, { t: '"Chennai, Tamil Nadu"', c: "str" }, { t: ",", c: "wh" }],
-  [{ t: "  studying", c: "attr" }, { t: ": {", c: "wh" }],
-  [{ t: "    degree", c: "attr" }, { t: ": ", c: "wh" }, { t: '"B.Tech Computer Science & Engineering"', c: "str" }, { t: ",", c: "wh" }],
-  [{ t: "    university", c: "attr" }, { t: ": ", c: "wh" }, { t: '"Vellore Institute of Technology, Chennai"', c: "str" }, { t: ",", c: "wh" }],
-  [{ t: "    year", c: "attr" }, { t: ": ", c: "wh" }, { t: '"2023 - 2027"', c: "str" }, { t: ",", c: "wh" }],
-  [{ t: "    cgpa", c: "attr" }, { t: ": ", c: "wh" }, { t: "8.72", c: "num" }, { t: ",", c: "wh" }],
-  [{ t: "  },", c: "wh" }],
-  [],
-  [{ t: "  buildingPhilosophy", c: "attr" }, { t: ": `", c: "str" }],
-  [{ t: '    Most of what I build starts with a late-night "what if?"', c: "str" }],
-  [{ t: "    or something I've seen people struggle with around me.", c: "str" }],
-  [],
-  [{ t: "    I'm big on co-creating - whether it's with designers, devs,", c: "str" }],
-  [{ t: "    or just honest conversations with users.", c: "str" }],
-  [],
-  [{ t: "    The best ideas don't come from perfect code.", c: "str" }],
-  [{ t: "    They come from messy Google Docs, 3am Figma sprees,", c: "str" }],
-  [{ t: "    and asking one question over and over:", c: "str" }],
-  [{ t: '    "Does this actually help someone?"', c: "acc" }],
-  [{ t: "  `,", c: "str" }],
-  [],
-  [{ t: "  certifications", c: "attr" }, { t: ": [", c: "wh" }],
-  [{ t: '    "Web Developer Bootcamp - Udemy (2024)",', c: "str" }],
-  [{ t: '    "Python for Computer Vision with OpenCV - Udemy (2024)",', c: "str" }],
-  [{ t: "  ],", c: "wh" }],
-  [],
-  [{ t: "  leadership", c: "attr" }, { t: ": [", c: "wh" }],
-  [{ t: "    {", c: "wh" }],
-  [{ t: "      role", c: "attr" }, { t: ": ", c: "wh" }, { t: '"Social Media Lead"', c: "str" }, { t: ",", c: "wh" }],
-  [{ t: "      org", c: "attr" }, { t: ": ", c: "wh" }, { t: '"IEEE Computer Society VIT"', c: "str" }, { t: ",", c: "wh" }],
-  [{ t: "      impact", c: "attr" }, { t: ": ", c: "wh" }, { t: '"Recruitment campaigns, event creatives, outreach & branding"', c: "str" }],
-  [{ t: "    },", c: "wh" }],
-  [{ t: "    {", c: "wh" }],
-  [{ t: "      role", c: "attr" }, { t: ": ", c: "wh" }, { t: '"Volunteer"', c: "str" }, { t: ",", c: "wh" }],
-  [{ t: "      org", c: "attr" }, { t: ": ", c: "wh" }, { t: '"Pledge a Smile NGO"', c: "str" }, { t: ",", c: "wh" }],
-  [{ t: "      impact", c: "attr" }, { t: ": ", c: "wh" }, { t: '"Tech-enabled fundraisers, volunteer teams, community impact"', c: "str" }],
-  [{ t: "    },", c: "wh" }],
-  [{ t: "  ],", c: "wh" }],
-  [{ t: "}", c: "wh" }],
-  [],
-  [{ t: "export default", c: "kw" }, { t: " about", c: "fn" }],
+const certifications = [
+  "Web Developer Bootcamp — Udemy (2024)",
+  "Python for Computer Vision with OpenCV and Deep Learning — Udemy (2024)",
+];
+
+const leadership = [
+  {
+    role: "Social Media Lead",
+    org: "IEEE Computer Society VIT",
+    impact:
+      "Led recruitment campaigns, event branding and technical outreach initiatives.",
+  },
+  {
+    role: "Volunteer",
+    org: "Pledge a Smile NGO",
+    impact:
+      "Organized fundraising initiatives and coordinated volunteers for community outreach programs.",
+  },
 ];
 
 export default function AboutView() {
   return (
-    <div className="code-body">
-      {lines.map((line, i) =>
-        line.length === 0 ? (
-          <div key={i} className="code-line">&nbsp;</div>
-        ) : (
-          <div key={i} className="code-line">
-            {line.map((tok, j) => (
-              <span key={j} className={tok.c || "wh"}>{tok.t}</span>
-            ))}
+    <div className="page-wrap">
+      <h1 className="page-title">About Me</h1>
+
+      <div className="page-subtitle">
+        {"// building intelligent software, one project at a time"}
+      </div>
+
+      <div className="about-card">
+        Hi! I'm <b className="hl-white">Preksha Chawla</b>, a B.Tech Computer
+        Science and Engineering student at{" "}
+        <b className="hl-blue">VIT Chennai</b> (2023–2027) with a{" "}
+        <b className="hl-blue">CGPA of 8.72</b>.
+        <br />
+        <br />
+        I'm passionate about{" "}
+        <b className="hl-blue">Full-Stack Development</b>,{" "}
+        <b className="hl-blue">Artificial Intelligence</b>,{" "}
+        <b className="hl-blue">Agentic AI</b>,{" "}
+        <b className="hl-blue">Machine Learning</b> and{" "}
+        <b className="hl-blue">Blockchain</b>. I enjoy transforming ideas into
+        scalable software that solves practical problems.
+        <br />
+        <br />
+        Recently, I've been building projects including an AI-powered{" "}
+        <b className="hl-pink">Deep Research Assistant</b>,{" "}
+        <b className="hl-pink">MediLedger</b> for secure healthcare record
+        management, and <b className="hl-pink">Hush</b>, an accessibility
+        platform for sign language recognition. I'm always excited to learn,
+        collaborate and build products that create meaningful impact.
+      </div>
+
+      <div className="section-label">Current Focus</div>
+
+      <div className="focus-grid">
+        {focus.map((item) => (
+          <div className="focus-item" key={item.text}>
+            <span>{item.text}</span>
           </div>
-        )
-      )}
+        ))}
+      </div>
+
+      <div className="section-label">Education</div>
+
+      <div className="focus-item" style={{ marginBottom: 8 }}>
+        <span>
+          <b className="hl-white">
+            B.Tech, Computer Science & Engineering
+          </b>{" "}
+          — Vellore Institute of Technology, Chennai (2023–2027) · CGPA 8.72
+        </span>
+      </div>
+
+      <div className="section-label">Certifications</div>
+
+      {certifications.map((certification) => (
+        <div
+          key={certification}
+          className="focus-item"
+          style={{ marginBottom: 8 }}
+        >
+          <span>{certification}</span>
+        </div>
+      ))}
+
+      <div className="section-label">Leadership & Volunteering</div>
+
+      {leadership.map((item) => (
+        <div
+          key={item.role}
+          className="focus-item"
+          style={{ marginBottom: 12 }}
+        >
+          <span>
+            <b className="hl-white">{item.role}</b> · {item.org}
+            <br />
+            {item.impact}
+          </span>
+        </div>
+      ))}
     </div>
   );
 }

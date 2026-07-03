@@ -1,12 +1,7 @@
 "use client";
 
 const experience = [
-  {
-    date: "Jul 2025 - Aug 2025",
-    role: "Machine Learning Intern",
-    org: "Navodita Infotech",
-    desc: "Designed and deployed image-classification pipelines using Python, TensorFlow, OpenCV, NumPy, Pandas, scikit-learn for healthcare and retail clients - up to 92% prediction accuracy. Improved model training efficiency by 30% through reproducible ML workflows with Jupyter, Git, and detailed documentation.",
-  },
+ 
   {
     date: "Jun 2025 - Jul 2025",
     role: "Frontend Developer",

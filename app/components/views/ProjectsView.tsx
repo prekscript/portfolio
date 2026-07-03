@@ -11,7 +11,7 @@ const projects = [
     live: "#",
   },
   {
-    icon: "[chain]",
+    icon: "[blockchain]",
     title: "Mediledger 2.0",
     desc: "Blockchain-based pharmaceutical supply chain platform leveraging Ethereum, Zero-Knowledge Proofs, IPFS, and AI-powered anomaly detection to securely track drugs and verify patient records.",
     tags: ["Solidity", "Ethereum", "IPFS", "zkSNARKs", "Gemini API"],
